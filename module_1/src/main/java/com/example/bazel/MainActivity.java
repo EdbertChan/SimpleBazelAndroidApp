@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
     TextView helloBazelTextView = findViewById(R.id.helloBazelTextView);
 
     Greeter greeter = new Greeter();
+    helloBazelTextView.setHeight(this.getResources().getDimensionPixelSize(R.dimen.m3_comp_bottom_app_bar_container_elevation));
 
     // Bazel supports Java 8 language features like lambdas!
     clickMeButton.setOnClickListener(v -> helloBazelTextView.setText(greeter.sayHello()));

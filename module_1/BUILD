@@ -7,4 +7,6 @@ android_library(
     visibility = ["//visibility:public"],
     manifest = "src/main/AndroidManifest.xml",
     resource_files = glob(["src/main/res/**/*"]),
+    deps = [
+        "@maven//:com_google_android_material_material"],
 )
