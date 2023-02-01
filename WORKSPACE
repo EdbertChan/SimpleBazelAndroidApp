@@ -53,6 +53,7 @@ maven_install(
         "androidx.test.ext:junit:1.1.0",
         "org.robolectric:robolectric:4.9.2",
         "org.assertj:assertj-core:3.12.1",
+        "com.google.android.gms:play-services-basement:aar:17.0.0",
     ],
     repositories = [
         "https://maven.google.com",

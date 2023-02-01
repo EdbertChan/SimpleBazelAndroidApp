@@ -7,6 +7,7 @@ android_library(
     visibility = ["//visibility:public"],
     manifest = "src/main/AndroidManifest.xml",
     resource_files = glob(["src/main/res/**/*"]),
+    deps = ["@maven//:com_google_android_gms_play_services_basement"]
 )
 
 android_local_test(
@@ -16,6 +17,7 @@ android_local_test(
     manifest = "src/test/AndroidManifest.xml",
     test_class = "com.example.bazel.GreeterTest",
     deps = [
+        "@maven//:com_google_android_gms_play_services_basement", #This shouldn't technically be needed, but it is here to prove that strict deps has nothing to do with the issue.
         ":greeter_activity",
         "@maven//:androidx_test_ext_junit",
         "@maven//:org_assertj_assertj_core",
