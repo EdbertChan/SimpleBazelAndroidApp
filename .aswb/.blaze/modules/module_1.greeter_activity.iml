@@ -14,14 +14,11 @@
   </component>
   <component name="NewModuleRootManager">
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../../AndroidManifest.xml">
-      <sourceFolder url="file://$MODULE_DIR$/../../../AndroidManifest.xml" type="java-resource" />
+    <content url="file://$MODULE_DIR$/../../../module_1/src/main/AndroidManifest.xml">
+      <sourceFolder url="file://$MODULE_DIR$/../../../module_1/src/main/AndroidManifest.xml" type="java-resource" />
     </content>
     <content url="file://$MODULE_DIR$/../../../module_1/src/main/res">
       <sourceFolder url="file://$MODULE_DIR$/../../../module_1/src/main/res" type="java-resource" />
-    </content>
-    <content url="file://$MODULE_DIR$/../../../src/main/java/com/example/bazel/res">
-      <sourceFolder url="file://$MODULE_DIR$/../../../src/main/java/com/example/bazel/res" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
