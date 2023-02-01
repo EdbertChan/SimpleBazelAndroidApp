@@ -7,4 +7,19 @@
       android:minSdkVersion="21"
       android:targetSdkVersion="26" />
 
+  <application
+      android:label="Bazel Tutorial App">
+
+    <meta-data
+        android:name="com.google.android.gms.version"
+        android:value="@integer/google_play_services_version"/>
+    <activity
+        android:name=".MainActivity"
+        android:label="Bazel Tutorial App" >
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
 </manifest>

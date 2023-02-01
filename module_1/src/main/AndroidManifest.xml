@@ -7,18 +7,4 @@
       android:minSdkVersion="21"
       android:targetSdkVersion="26" />
 
-  <application
-      android:label="@string/thinking_face"
-      android:hardwareAccelerated="true">
-    <activity
-        android:name=".MainActivity"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-        android:windowSoftInputMode="adjustPan">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-  </application>
 </manifest>

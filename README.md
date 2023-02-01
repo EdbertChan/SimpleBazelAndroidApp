@@ -1,1 +1,1 @@
-This is a barebones Android app for the [Bazel Android tutorial](https://docs.bazel.build/versions/master/tutorial/android-app.html).
+//module_1:greeter_activity_test --noexperimental_android_local_test_binary_resources   
