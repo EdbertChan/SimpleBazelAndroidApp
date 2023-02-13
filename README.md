@@ -30,36 +30,3 @@ org.junit.ComparisonFailure: expected:<"com.[uber.demo.app.id]"> but was:<"com.[
         at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
         at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
         at java.base/java.lang.Thread.run(Thread.java:829)
-
-The cause of the error is that @Config() is only available in legacy mode. 
-
-Next, to run in legacy mode (by omitting the resource APK)
-
-bazel test //module_1:greeter_activity_test --noexperimental_android_local_test_binary_resources   
-
-Observe that this test fails
-
-There was 1 failure:
-1) testConfig(com.example.bazel.GreeterTest)
-android.content.res.Resources$NotFoundException: com.uber.demo.app.id:integer/google_play_services_version
-        at org.robolectric.android.internal.AndroidTestEnvironment.injectResourceStuffForLegacy(AndroidTestEnvironment.java:453)
-        at org.robolectric.android.internal.AndroidTestEnvironment.loadAppPackage_measured(AndroidTestEnvironment.java:383)
-        at org.robolectric.android.internal.AndroidTestEnvironment.lambda$loadAppPackage$3(AndroidTestEnvironment.java:376)
-        at org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:53)
-        at org.robolectric.android.internal.AndroidTestEnvironment.loadAppPackage(AndroidTestEnvironment.java:376)
-        at org.robolectric.android.internal.AndroidTestEnvironment.installAndCreateApplication(AndroidTestEnvironment.java:273)
-        at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$0(AndroidTestEnvironment.java:245)
-        at org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:53)
-        at org.robolectric.android.internal.AndroidTestEnvironment.lambda$createApplicationSupplier$1(AndroidTestEnvironment.java:242)
-        at com.google.common.base.Suppliers$NonSerializableMemoizingSupplier.get(Suppliers.java:183)
-        at org.robolectric.RuntimeEnvironment.getApplication(RuntimeEnvironment.java:72)
-        at org.robolectric.android.internal.AndroidTestEnvironment.setUpApplicationState(AndroidTestEnvironment.java:210)
-        at org.robolectric.RobolectricTestRunner.beforeTest(RobolectricTestRunner.java:331)
-        at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:278)
-        at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
-        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-        at java.base/java.lang.Thread.run(Thread.java:829)
-
-Verdict: Not all resources are available in non-legacy mode
