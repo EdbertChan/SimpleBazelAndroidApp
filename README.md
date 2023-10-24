@@ -2,13 +2,20 @@ This branch demonstrates a bug with 7.0 where all JavaC compilation defaults to 
 
 # Compile and run with Java 11 by default
 common --java_language_version=11
+
 common --java_runtime_version=remotejdk_11
+
 common --tool_java_language_version=11
+
 common --tool_java_runtime_version=remotejdk_11
 
+
 common --host_javabase=@bazel_tools//tools/jdk:remote_jdk11
+
 common --javabase=@bazel_tools//tools/jdk:remote_jdk11
+
 common --host_java_toolchain=@bazel_tools//tools/jdk:toolchain_java11
+
 common --java_toolchain=@bazel_tools//tools/jdk:toolchain_java11
 
 
