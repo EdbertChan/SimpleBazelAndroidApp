@@ -1,6 +1,1 @@
-# Enable d8 merger
-build --define=android_dexmerger_tool=d8_dexmerger
-
-# Flags for the d8 dexer
-build --define=android_incremental_dexing_tool=d8_dexbuilder
-build --define=android_standalone_dexing_tool=d8_compat_dx
+# Need this in order to make it not crash! --noincremental_dexing

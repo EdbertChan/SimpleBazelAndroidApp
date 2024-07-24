@@ -6,6 +6,9 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
+import java.util.function.Function;
+
 /**
  * Main class for the Bazel Android "Hello, World" app.
  */
@@ -13,7 +16,9 @@ public class MainActivity extends Activity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    Log.v("Bazel", "Hello, Android");
+    Function<String, Integer> stringLength = s -> s.length();
+    Log.v("Bazel_234", String.valueOf(stringLength.apply("HELLOSTRING")));
+
 
     setContentView(R.layout.activity_main);
 
