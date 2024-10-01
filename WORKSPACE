@@ -1,41 +1,12 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-android_sdk_repository(
-    name = "androidsdk",
-    api_level = 33,
-    build_tools_version = "33.0.0",
-)
-
-android_ndk_repository(
-    name = "androidndk",
-    api_level = 33,
-)
-
-http_archive(
-    name = "rules_android",
-    sha256 = "cd06d15dd8bb59926e4d65f9003bfc20f9da4b2519985c27e190cddc8b7a7806",
-    strip_prefix = "rules_android-0.1.1",
-    urls = ["https://github.com/bazelbuild/rules_android/archive/v0.1.1.zip"],
-)
-
-http_archive(
-    name = "robolectric",
-    sha256 = "7e007fcfdca7b7228cb4de72707e8b317026ea95000f963e91d5ae365be52d0d",
-    strip_prefix = "robolectric-bazel-4.9.2",
-    urls = ["https://github.com/robolectric/robolectric-bazel/archive/4.9.2.tar.gz"],
-)
-
-load("@robolectric//bazel:robolectric.bzl", "robolectric_repositories")
-
-robolectric_repositories()
-
 http_archive(
     name = "rules_jvm_external",
     strip_prefix = "rules_jvm_external-4.5",
     sha256 = "b17d7388feb9bfa7f2fa09031b32707df529f26c91ab9e5d909eb1676badd9a6",
     url = "https://github.com/bazelbuild/rules_jvm_external/archive/4.5.zip",
 )
-
+###
 load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
 
 rules_jvm_external_deps()
@@ -70,6 +41,47 @@ maven_install(
 )
 
 load("@maven//:defs.bzl", "pinned_maven_install")
+
+http_archive(
+    name = "rules_android_offender",
+    sha256 = "fc6b022e97c2d5893aa3dd01b480f37cd386d82fc7e14edbcba393cd390a244e",
+    strip_prefix = "rules_android-0.5.0",
+    url = "https://github.com/bazelbuild/rules_android/releases/download/v0.5.0/rules_android-v0.5.0.tar.gz",
+)
+load("@rules_android_offender//:prereqs.bzl", "rules_android_prereqs")
+rules_android_prereqs()
+
+###
+
+android_sdk_repository(
+    name = "androidsdk",
+    api_level = 33,
+    build_tools_version = "33.0.0",
+)
+
+android_ndk_repository(
+    name = "androidndk",
+    api_level = 33,
+)
+
+http_archive(
+    name = "rules_android",
+    sha256 = "cd06d15dd8bb59926e4d65f9003bfc20f9da4b2519985c27e190cddc8b7a7806",
+    strip_prefix = "rules_android-0.1.1",
+    urls = ["https://github.com/bazelbuild/rules_android/archive/v0.1.1.zip"],
+)
+
+http_archive(
+    name = "robolectric",
+    sha256 = "7e007fcfdca7b7228cb4de72707e8b317026ea95000f963e91d5ae365be52d0d",
+    strip_prefix = "robolectric-bazel-4.9.2",
+    urls = ["https://github.com/robolectric/robolectric-bazel/archive/4.9.2.tar.gz"],
+)
+
+load("@robolectric//bazel:robolectric.bzl", "robolectric_repositories")
+
+robolectric_repositories()
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 rules_kotlin_version = "1.9.0"

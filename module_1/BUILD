@@ -20,7 +20,7 @@ android_local_test(
     name = "greeter_activity_test",
     srcs = glob(["src/test/kotlin/**/*.kotlin"]),
     custom_package = "com.example.bazel",
-    manifest = "src/test/AndroidManifest.xml",
+    manifest = "src/main/AndroidManifest.xml",
     test_class = "com.example.bazel.GreeterTest",
     deps = [
         ":greeter_activity",
